@@ -84,7 +84,7 @@ class LoginPage(tk.Tk):
                         if line[1] == username and line[3] == password:
                             return True
                     return False
-            except FileNotFoundError:
+            except FileNotFoundErro:
                 return False
 
 
