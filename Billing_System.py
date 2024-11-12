@@ -78,13 +78,13 @@ class LoginPage(tk.Tk):
         def validate(username, password):
             # Checks the text file for a username\password combination.
             try:
-                with open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/credentials.txt", "r") as credentials:
+                with open("Billing__System/text_files/credentials.txt", "r") as credentials:
                     for line in credentials:
                         line = line.split(",")
                         if line[1] == username and line[3] == password:
                             return True
                     return False
-            except FileNotFoundErro:
+            except FileNotFoundError:
                 return False
 
 
@@ -142,12 +142,12 @@ class SignupPage(tk.Tk):
             user = entry_user.get()
             pw = entry_pw.get()
             validation = validate_user(user)
-            if adminuser=="moonshine-admin" and adminpw=="9815440039":
+            if adminuser=="admin" and adminpw=="admin":
                     if not validation:
                         tk.messagebox.showerror("Information", "That Username already exists")
                     else:
                         if len(pw) > 6:
-                                credentials = open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/credentials.txt", "a")
+                                credentials = open("Billing__System/text_files/credentials.txt", "a")
                                 credentials.write(f"Username,{user},Password,{pw},\n")
                                 credentials.close()
                                 tk.messagebox.showinfo("Information", "Your account details have been stored.")
@@ -162,7 +162,7 @@ class SignupPage(tk.Tk):
         def validate_user(username):
             # Checks the text file for a username\password combination.
             try:
-                with open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/credentials.txt", "r") as credentials:
+                with open("Billing__System/text_files/credentials.txt", "r") as credentials:
                     for line in credentials:
                         line = line.split(",")
                         if line[1] == username:
@@ -215,20 +215,20 @@ class Poultry_app():
         
         def date1():
                 q1=idate.get()
-                file1=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/date/current.txt","w")
+                file1=open("Billing__System/text_files/date/current.txt","w")
                 file1.write(q1)
 
         date1()
 
         def date2():
-                file1=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/date/current.txt","r")
+                file1=open("Billing__System/text_files/date/current.txt","r")
                 q1=file1.read()
                 q2=idate.get()
 
                 if q1!=q2:
                         p=messagebox.askokcancel("Change Date")
                         if p>0:
-                                file=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/date/current.txt","w")
+                                file=open("Billing__System/text_files/date/current.txt","w")
                                 file.write(idate.get())
                                 date3()
                         elif p<0:
@@ -238,14 +238,14 @@ class Poultry_app():
         date2()
 
         def date4():
-                file1=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/date/last_bs.txt", "r")
+                file1=open("Billing__System/text_files/date/last.txt", "r")
                 q1=file1.read()
                 date_bs.set(q1)
         
         date4()
 
         def date5():
-                file1=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/date/last_bs.txt", "w")
+                file1=open("Billing__System/text_files/date/last.txt", "w")
                 q=date_bs.get()
                 file1.write(q)
          
@@ -273,7 +273,7 @@ class Poultry_app():
         
 
         def bill_fetch():   
-                file0=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/bill no.txt", "r")
+                file0=open("Billing__System/text_files/bill_no.txt", "r")
                 r_bill_no=file0.read()
                 last_bill_no=int(r_bill_no)
                 bill_no.set(last_bill_no)
@@ -281,12 +281,12 @@ class Poultry_app():
 
 
         def bill_set():
-                file0=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/bill no.txt", "r")
+                file0=open("Billing__System/text_files/bill_no.txt", "r")
                 r_bill_no=file0.read()
                 last_bill_no=int(r_bill_no)
                 now_bill_no=last_bill_no+1
                 q4=str(now_bill_no)
-                file1=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/bill no.txt", "w")
+                file1=open("Billing__System/text_files/bill_no.txt", "w")
                 file1.write(q4)
                 file1.close()
         
@@ -297,29 +297,29 @@ class Poultry_app():
 
         def rate_set():
 
-                file1=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/rates/large.txt","r")
+                file1=open("Billing__System/text_files/rates/large.txt","r")
                 q1=file1.read()
                 q1=int(q1)
                 large_rate.set(q1)
                 file1.close()  
 
-                file2=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/rates/medium.txt","r")
+                file2=open("Billing__System/text_files/rates/medium.txt","r")
                 q2=file2.read()
                 q2=int(q2)
                 medium_rate.set(q2)
-                file3=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/rates/small.txt","r")
+                file3=open("Billing__System/text_files/rates/small.txt","r")
                 q3=file3.read()
                 q3=int(q3)
                 small_rate.set(q3)
                 file3.close()
 
-                file4=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/rates/chicken.txt","r")
+                file4=open("Billing__System/text_files/rates/chicken.txt","r")
                 q4=file4.read()
                 q4=int(q4)
                 chicken_rate.set(q4)
                 file4.close()
 
-                file5=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/rates/litter.txt","r")
+                file5=open("Billing__System/text_files/rates/litter.txt","r")
                 q5=file5.read()
                 q5=int(q5)
                 litter_rate.set(q5)
@@ -504,7 +504,7 @@ class Poultry_app():
         self.lbld_ttl.grid(row=4,column=1) 
 
         def a():
-                file= open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/daily_total/" + date_bs.get() + "-total" + ".txt" , "a")
+                file= open("Billing__System/text_files/daily_total/" + date_bs.get() + "-total" + ".txt" , "a")
                 q=total.get()
                 q=str(q)
                 file.write(f"{q}\n")
@@ -513,7 +513,7 @@ class Poultry_app():
                                 
         def c():
                 total=0
-                with open('C:/Users/saura/Desktop/Billing/Donot_Touch_Files/daily_total/' + date_bs.get() + '-total' + '.txt') as infile:
+                with open('Billing__System/text_files/daily_total/' + date_bs.get() + '-total' + '.txt') as infile:
                         for line in infile:
                                 try:
                                         num = int(line)
@@ -723,7 +723,7 @@ class Poultry_app():
                         self.lblsave.insert(END,f"\n>>Discount: {discount.get()}" )
                 self.lblsave.insert(END,f"\n>>Total: {total.get()}" )
                 j=self.lblsave.get("1.0", "end-1c")
-                file= open("C:/Users/saura/Desktop/Billing/Daily_Files/" + date_bs.get() + ".txt" , "a")
+                file= open("Billing__System/Daily_Files/" + date_bs.get() + ".txt" , "a")
                 p=messagebox.askokcancel("Do you want to save it in a file")
                 if(p>0):
                         file.write(j)
@@ -771,35 +771,35 @@ class Poultry_app():
                         if large_rate.get()>0:
                                 q1=large_rate.get()
                                 q1=str(q1)
-                                file1=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/rates/large.txt","w")
+                                file1=open("Billing__System/text_files/rates/large.txt","w")
                                 file1.write(q1)
                                 file1.close()
                         
                         if medium_rate.get()>0:
                                 q2=medium_rate.get()
                                 q2=str(q2)
-                                file2=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/rates/medium.txt","w")
+                                file2=open("Billing__System/text_files/rates/medium.txt","w")
                                 file2.write(q2)
                                 file2.close()
 
                         if small_rate.get()>0:
                                 q3=small_rate.get()
                                 q3=str(q3)
-                                file3=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/rates/small.txt","w")
+                                file3=open("Billing__System/text_files/rates/small.txt","w")
                                 file3.write(q3)
                                 file3.close()
 
                         if chicken_rate.get()>0:
                                 q4=chicken_rate.get()
                                 q4=str(q4)
-                                file4=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/rates/chicken.txt","w")
+                                file4=open("Billing__System/text_files/rates/chicken.txt","w")
                                 file4.write(q4)
                                 file4.close()
 
                         if litter_rate.get()>0:
                                 q5=litter_rate.get()
                                 q5=str(q5)
-                                file5=open("C:/Users/saura/Desktop/Billing/Donot_Touch_Files/rates/litter.txt","w")
+                                file5=open("Billing__System/text_files/rates/litter.txt","w")
                                 file5.write(q5)
                                 file5.close()
 
