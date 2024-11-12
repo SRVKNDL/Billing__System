@@ -18,11 +18,10 @@ class LoginPage(tk.Tk):
 
         tk.Tk.__init__(self, *args, **kwargs)
 
-        main_frame = tk.Frame(self, bg="#708090", height=431, width=626)  # this is the background
+        main_frame = tk.Frame(self, bg="#708090", height=400, width=600)  # this is the background
         main_frame.pack(fill="both", expand="true")
 
         self.geometry("626x431")  # Sets window size to 626w x 431h pixels
-        self.resizable(0, 0)  # This prevents any resizing of the screen
         title_styles = {"font": ("Trebuchet MS Bold", 16), "background": "blue"}
 
         text_styles = {"font": ("Verdana", 14),
@@ -66,7 +65,6 @@ class LoginPage(tk.Tk):
         def getlogin():
             username = entry_user.get()
             password = entry_pw.get()
-            # if your want to run the script as it is set validation = True
             validation = validate(username, password)
             if validation:
                 tk.messagebox.showinfo("Login Successful",
@@ -176,7 +174,7 @@ class Poultry_app():
         
     def __init__(self,root):
         self.root=root
-        self.root.geometry("1350x800+0+0")
+        self.root.resizable(True, True)
         self.root.configure(bg="#5B2C6F")
         self.root.title("MOONSHINE POULTRY PVT. LTD.")
         #===========================================================variables=======================================================================================
